@@ -1,0 +1,9 @@
+# Don't use py_binary intentionally. This prevents the overhead of creating a hermetic python launcher, which has nontrivial overhead.
+genrule(
+    name = "ninja_wrapper",
+    executable = True,
+    cmd = "cp $< $@",
+    srcs = ["ninja_wrapper.py"],
+    outs = ["ninja_wrapper"],
+    visibility = ["//visibility:public"]
+)

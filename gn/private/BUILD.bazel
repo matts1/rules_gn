@@ -1,0 +1,4 @@
+package(
+  # Only this repo.
+  default_vibisility = "//:__subpackages__"
+)

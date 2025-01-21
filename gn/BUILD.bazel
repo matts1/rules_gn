@@ -1,4 +1,12 @@
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load(":expand_template.bzl", "expand_template")
+load("//:metadata.bzl", "DEFAULT_TOOLCHAIN", "ROOT_BUILD_DIR")
+
+label_setting(
+    name = "current_toolchain",
+    build_setting_default = DEFAULT_TOOLCHAIN,
+    visibility = ["//visibility:public"],
+)
 
 # For stardoc to reference the files
 exports_files(["defs.bzl"])
@@ -7,4 +15,14 @@ bzl_library(
     name = "defs",
     srcs = ["defs.bzl"],
     visibility = ["//visibility:public"],
+)
+
+expand_template(
+    name = "tool_wrapper",
+    template = "tool_wrapper.in.sh",
+    out = "tool_wrapper.sh",
+    substitutions = {
+        "$ROOT_BUILD_DIR": ROOT_BUILD_DIR,
+    },
+    is_executable = True,
 )

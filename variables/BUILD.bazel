@@ -1,0 +1,249 @@
+load("@rules_toolchains//toolchains:variables.bzl", "string_variable")
+
+package(default_visibility = ["//visibility:public"])
+
+# rules_toolchains variables are the equivalent of GN substitutions.
+# TODO: These should be args, not variables.
+
+string_variable(
+    name = "label",
+    actions = ["//actions:all_actions"],
+)
+
+string_variable(
+    name = "label_name",
+    actions = ["//actions:all_actions"],
+)
+
+string_variable(
+    name = "label_no_toolchain",
+    actions = ["//actions:all_actions"],
+)
+
+string_variable(
+    name = "output",
+    actions = ["//actions:all_actions"],
+)
+
+string_variable(
+    name = "target_gen_dir",
+    actions = ["//actions:all_actions"],
+)
+
+string_variable(
+    name = "target_out_dir",
+    actions = ["//actions:all_actions"],
+)
+
+string_variable(
+    name = "target_output_name",
+    actions = ["//actions:all_actions"],
+)
+
+string_list_variable(
+    name = "asmflags",
+    actions = ["//actions:asm"],
+)
+
+string_list_variable(
+    name = "cflags",
+    actions = ["//actions:compile_actions"],
+)
+
+string_list_variable(
+    name = "cflags_c",
+    actions = ["//actions:cc"],
+)
+
+string_list_variable(
+    name = "cflags_cc",
+    actions = [
+        "//actions:cxx",
+        "//actions:cxx_module",
+    ],
+)
+
+string_list_variable(
+    name = "cflags_objc",
+    actions = ["//actions:compile_actions"],
+)
+
+string_list_variable(
+    name = "cflags_objcc",
+    actions = ["//actions:compile_actions"],
+)
+
+string_variable(
+    name = "cc_module_name",
+    actions = ["//actions:cxx_module"],
+)
+
+string_list_variable(
+    name = "defines",
+    actions = ["//actions:compile_actions"],
+)
+
+string_list_variable(
+    name = "include_dirs",
+    actions = ["//actions:compile_actions"],
+)
+
+string_list_variable(
+    name = "module_deps",
+    actions = ["//actions:compile_actions"],
+)
+
+string_list_variable(
+    name = "module_deps_no_self",
+    actions = ["//actions:compile_actions"],
+)
+
+string_variable(
+    name = "source",
+    actions = ["//actions:compile_actions"],
+)
+
+string_variable(
+    name = "source_file_part",
+    actions = ["//actions:compile_actions"],
+)
+
+string_variable(
+    name = "source_name_part",
+    actions = ["//actions:compile_actions"],
+)
+
+string_variable(
+    name = "source_gen_dir",
+    actions = ["//actions:compile_actions"],
+)
+
+string_variable(
+    name = "source_out_dir",
+    actions = ["//actions:compile_actions"],
+)
+
+string_variable(
+    name = "inputs",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "inputs_newline",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "ldflags",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "libs",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "output_dir",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "output_extension",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "solibs",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "rlibs",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "frameworks",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "swiftmodules",
+    actions = [
+        "//actions:solink",
+        "//actions:solink_module",
+        "//actions:link",
+    ],
+)
+
+string_variable(
+    name = "arflags",
+    actions = ["//actions:alink"],
+)
+
+string_variable(
+    name = "crate_name",
+    actions = ["//actions:rust_compile_actions"],
+)
+
+string_variable(
+    name = "crate_type",
+    actions = ["//actions:rust_compile_actions"],
+)
+
+string_variable(
+    name = "externs",
+    actions = ["//actions:rust_compile_actions"],
+)
+
+string_variable(
+    name = "rustdeps",
+    actions = ["//actions:rust_compile_actions"],
+)
+
+string_variable(
+    name = "rustenv",
+    actions = ["//actions:rust_compile_actions"],
+)
+
+string_variable(
+    name = "rustflags",
+    actions = ["//actions:rust_compile_actions"],
+)

@@ -1,0 +1,156 @@
+load("@rules_toolchains//toolchains:actions.bzl", "action_type", "action_type_set")
+
+package(default_visibility = ["//visibility:public"])
+
+# This is a list of all action types recognised by GN.
+# In GN terminology, these would correspond to the names of "tools"
+
+action_type(
+    name = "cc",
+    mnemonic = "CC",
+)
+
+action_type(
+    name = "cxx",
+    mnemonic = "CXX",
+)
+
+action_type(
+    name = "cxx_module",
+    mnemonic = "CXX_MODULE",
+)
+
+action_type(
+    name = "asm",
+    mnemonic = "ASM",
+)
+
+action_type(
+    name = "objc",
+    mnemonic = "OBJC",
+)
+
+action_type(
+    name = "objcxx",
+    mnemonic = "OBJCXX",
+)
+
+action_type(
+    name = "rc",
+    mnemonic = "RC",
+)
+
+action_type(
+    name = "swift",
+    mnemonic = "SWIFT",
+)
+
+action_type(
+    name = "alink",
+    mnemonic = "AR",
+)
+
+action_type(
+    name = "solink",
+    mnemonic = "SOLINK",
+)
+
+action_type(
+    name = "solink_module",
+    mnemonic = "SOLINK_MODULE",
+)
+
+action_type(
+    name = "link",
+    mnemonic = "LINK",
+)
+
+action_type(
+    name = "copy_bundle_data",
+    mnemonic = "COPY_BUNDLE_DATA",
+)
+
+action_type(
+    name = "compile_xcassets",
+    mnemonic = "COMPILE_XCASSETS",
+)
+
+action_type(
+    name = "rust_staticlib",
+    mnemonic = "RUST(STATICLIB)",
+)
+
+action_type(
+    name = "rust_rlib",
+    mnemonic = "RUST(RLIB)",
+)
+
+action_type(
+    name = "rust_bin",
+    mnemonic = "RUST(BIN)",
+)
+
+action_type(
+    name = "rust_cdylib",
+    mnemonic = "RUST(CDYLIB)",
+)
+
+action_type(
+    name = "rust_macro",
+    mnemonic = "RUST(MACRO)",
+)
+
+action_type(
+    name = "rust_dylib",
+    mnemonic = "RUST(DYLIB)",
+)
+
+action_type_set(
+    name = "compile_actions",
+    actions = [
+        ":cc",
+        ":cxx",
+        ":cxx_module",
+        ":asm",
+        ":objc",
+        ":objcxx",
+        ":rc",
+        ":swift",
+        ":rust_actions",
+    ],
+)
+
+action_type_set(
+    name = "link_actions",
+    actions = [
+        ":alink",
+        ":solink",
+        ":solink_module",
+        ":link",
+    ],
+)
+
+action_type_set(
+    name = "rust_actions",
+    actions = [
+        ":rust_staticlib",
+        ":rust_rlib",
+        ":rust_bin",
+        ":rust_cdylib",
+        ":rust_macro",
+        ":rust_dylib",
+    ],
+)
+
+action_type_set(
+    name = "all_actions",
+    actions = [
+        ":compile_actions",
+        ":link_actions",
+        ":rust_actions",
+        ":copy_bundle_data",
+        ":compile_xcassets",
+    ],
+)
+
+exports_files(["run.sh"])

@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../rules_toolchains"
+		},
+		{
+			"path": "../gn"
+		},
+		{
+			"path": "../rules_testing"
+		},
+		{
+			"path": "../chromium-bazel/src"
+		},
+		{
+			"path": "../bazel"
+		}
+	],
+	"settings": {}
+}
